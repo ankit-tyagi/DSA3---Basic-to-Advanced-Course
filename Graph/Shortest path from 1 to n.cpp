@@ -10,6 +10,7 @@ void addedge(vector<int> adj[], int u, int v)
 
 bool bfs(vector<int> adj[], int source, int destination, int v, int predecessor[], int distance[])
 {
+    //cout<<"In BFS"<<endl;
     list<int> queue;
     bool visited[v];
     for(int i=0;i<v;i++)
@@ -18,9 +19,10 @@ bool bfs(vector<int> adj[], int source, int destination, int v, int predecessor[
         predecessor[i]=-1;
         distance[i]=INT_MIN;
     }
-    predecessor[source] =0;
+
     visited[source]=true;
     distance[source]=0;
+    queue.push_back(source);
 
     while(!queue.empty())
     {
@@ -49,6 +51,7 @@ bool bfs(vector<int> adj[], int source, int destination, int v, int predecessor[
 
 void printShortestDistance(vector<int> adj[], int source, int destination , int v)
 {
+ //   cout<<"In printShortestDistance method";
     int predecessor[v];
     int distance[v];
     if(bfs(adj,source,destination,v,predecessor,distance)==false)   
@@ -56,8 +59,10 @@ void printShortestDistance(vector<int> adj[], int source, int destination , int 
         cout<<"These are not connected";
         return;
     } 
+   // cout<<"out of method";
     vector<int> path;
-    int crawl = predecessor[crawl];
+    int crawl = destination;
+   // cout<<crawl;
     path.push_back(crawl);
     while(predecessor[crawl] != -1)
     {
