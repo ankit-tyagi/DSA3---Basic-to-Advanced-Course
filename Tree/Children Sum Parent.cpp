@@ -1,4 +1,4 @@
-{
+
 /*input
 2
 3
@@ -74,12 +74,11 @@ int main()
 				insert(root1,a1,a2,lr);
 			}
 		}
-			cout<<isSumProperty(root1)<<"
-";
+			cout<<isSumProperty(root1)<<"";
 	}
 }
 
-}
+
 /*This is a function problem.You only need to complete the function given below*/
 /*Complete the function below
 struct Node
