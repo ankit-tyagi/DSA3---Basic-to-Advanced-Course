@@ -85,5 +85,19 @@ struct Node
 //You are required to complete this method
 void levelOrder(Node* node)
 {
+  if(node == NULL)
+    return;
+  queue<Node*> q;
+  q.push(node);
+  while(!q.empty())
+  {
+    Node *temp = q.front();
+    q.pop();
+    cout<<temp->data<<" ";
+    if(temp->left)
+      q.push(temp->left);
+    if(temp->right)
+      q.push(temp->right);
+  }
   //Your code here
 }
