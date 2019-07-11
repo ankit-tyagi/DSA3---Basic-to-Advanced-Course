@@ -1,7 +1,9 @@
-{
 #include <bits/stdc++.h>
+
 using namespace std;
+
 void levelOrder(struct Node* node);
+
 /* A binary tree node has data, pointer to left child
    and a pointer to right child */
 struct Node
@@ -32,8 +34,7 @@ int main()
 {
   int t;
   struct Node *child;
-  scanf("%d
-", &t);
+  scanf("%d", &t);
   while (t--)
   {
      map<int, Node*> m;
@@ -66,8 +67,6 @@ int main()
      cout << endl;
   }
   return 0;
-}
-
 }
 /*This is a function problem.You only need to complete the function given below*/
 /* A binary tree Node
