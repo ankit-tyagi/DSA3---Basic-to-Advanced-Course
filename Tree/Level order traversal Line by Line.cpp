@@ -14,10 +14,12 @@ struct Node
         left = right = NULL;
     }
 };
+
 void levelOrder(struct Node* node);
 /* Helper function to test mirror(). Given a binary
    search tree, print out its data elements in
    increasing sorted order.*/
+
 void inOrder(struct Node* node)
 {
   if (node == NULL)
@@ -31,8 +33,7 @@ int main()
 {
   int t;
   struct Node *child;
-  scanf("%d
-", &t);
+  scanf("%d", &t);
   while (t--)
   {
      map<int, Node*> m;
@@ -62,7 +63,7 @@ int main()
         m[n2]  = child;
      }
      levelOrder(root);
-     cout << endl;
+     cout<< endl;
   }
   return 0;
 }
@@ -88,14 +89,36 @@ void levelOrder(Node* node)
     if(node == NULL)
         return;
 
-    queue<node*> q;
+    queue<Node*> q;
     q.push(node);
     while(!q.empty())
     {
-        int size = q.size();
+      int size = q.size();
+      while(size>0)
+      {
         Node* temp = q.front();
         q.pop();
+        if(temp->left != NULL)
+          q.push(temp->left);
+        if(temp->right != NULL)
+          q.push(temp->right);
+        cout<<temp->data<<" ";
+        size--;
+      }
+      cout<<"$ ";
     }
         
   //Your code here
 }
+
+
+/*Input:
+2
+2
+1 2 R 1 3 L
+4
+10 20 L 10 30 R 20 40 L 20 60 R
+
+Output:
+1 $ 3 2  $
+10 $ 20 30 $ 40 60 $ */
