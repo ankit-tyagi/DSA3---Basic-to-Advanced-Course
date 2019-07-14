@@ -22,14 +22,12 @@ int main()
 {
   int t;
   struct Node *child;
-  scanf("%d
-", &t);
+  scanf("%d", &t);
   while (t--)
   {
      map<int, Node*> m;
      int n;
-     scanf("%d
-",&n);
+     scanf("%d",&n);
      struct Node *root = NULL;
      if(n==1)
      {
@@ -64,8 +62,7 @@ int main()
     //sec tree
      map<int, Node*> mm;
      int nn;
-     scanf("%d
-",&nn);
+     scanf("%d",&nn);
      struct Node *roott = NULL;
      if(nn==1)
      {
