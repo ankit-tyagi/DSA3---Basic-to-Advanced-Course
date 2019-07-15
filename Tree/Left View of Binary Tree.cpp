@@ -1,4 +1,3 @@
-{
 #include <bits/stdc++.h>
 using namespace std;
 /* A binary tree node has data, pointer to left child
@@ -21,14 +20,12 @@ int main()
 {
   int t;
   struct Node *child;
-  scanf("%d
-", &t);
+  scanf("%d", &t);
   while (t--)
   {
      map<int, Node*> m;
      int n;
-     scanf("%d
-",&n);
+     scanf("%d",&n);
      struct Node *root = NULL;
      while (n--)
      {
@@ -58,7 +55,7 @@ int main()
   return 0;
 }
 
-}
+
 /*This is a function problem.You only need to complete the function given below*/
 /* A binary tree node
 struct Node
