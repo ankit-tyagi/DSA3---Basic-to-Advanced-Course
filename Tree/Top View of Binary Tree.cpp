@@ -14,29 +14,19 @@ struct Node
         left = right = NULL;
     }
 };
-/* Computes the number of nodes in a tree. */
-int height(struct Node* node);
-void inorder(Node *root)
-{
-    if (root == NULL)
-       return;
-    inorder(root->left);
-    cout << root->data << " ";
-    inorder(root->right);    
-}
+void topView(Node *root);
 /* Driver program to test size function*/
 int main()
 {
   int t;
-  scanf("%d
-", &t);
+  struct Node *child;
+  scanf("%d", &t);
   while (t--)
   {
      map<int, Node*> m;
      int n;
      scanf("%d",&n);
      struct Node *root = NULL;
-     struct Node *child;
      while (n--)
      {
         Node *parent;
@@ -59,17 +49,19 @@ int main()
           parent->right = child;
         m[n2]  = child;
      }
-     cout << height(root) << endl;
+     topView(root);
+     cout << endl;
   }
   return 0;
 }
 
 
 /*This is a function problem.You only need to complete the function given below*/
-/* Tree node structure  used in the program
+//Structure of binary tree
+/*struct Node
 struct Node
 {
-    int data;
+    int data, hd;
     struct Node* left;
     struct Node* right;
     
@@ -78,23 +70,37 @@ struct Node
         left = right = NULL;
     }
 };*/
-/* Computes the height of binary tree with given root.  */
-int height(Node* node)
+// function should print the topView of the binary tree
+void topView(Node *root)
 {
-    if(node == NULL)
-        return 0;
-    return (max(height(node->left),height(node->right))+1);
-   // Your code here
+  
+    if(root == NULL)
+      return;
+    
+    unordered_set<int> us;
+    queue<pair<Node *,int>> q;
+    q.push({root,0});
+
+    while(!q.empty())
+    {
+      pair<Node*, int> tp = q.front();
+      Node* temp = tp.first;
+      //Node* temp = q.front.first;
+      int hd =  tp.second; //q.front.second;
+      q.pop();
+      if(us.find(hd) == us.end())
+      {
+        cout<<temp->data<<" ";
+        us.insert(hd);
+      }
+      if(temp->left)
+        q.push(make_pair(temp->left,hd-1));
+      
+      if(temp->right)
+        q.push(make_pair(temp->right,hd+1));
+
+    }
+    //for(auto itterator = us.begin();itterator!=us.end;itterator++)
+    
+    // Your code here
 }
-
-
-/*Input:
-2
-2
-1 2 L 1 3 R
-4
-10 20 L 10 30 R 20 40 L 20 60 R
-
-Output:
-2
-3 */
