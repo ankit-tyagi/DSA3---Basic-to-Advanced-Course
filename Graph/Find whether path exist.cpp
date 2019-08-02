@@ -1,16 +1,19 @@
 #include<iostream>
 #include<bits/stdc++.h>
 
-#define N 21
+#define N 22
 
 bool isrechable(int a[][N], int n, int i, int j, int x, int y)
 {
     if(i==x && j==y)
         return true;
-    else if(a[i][j] == 3)
-        return false;
-    else if(i>=0 && i<n && j>=0 && j<n)
-        return(isrechable(a,n,i+1,j,x,y) || isrechable(a,n,i,j+1,x,y) || isrechable(a,n,i-1,j,x,y) || isrechable(a,n,i,j-1,x,y));
+    if(i>=0 && i<n && j>=0 && j<n)
+    {
+        if(a[i][j] == 3)
+            return false;
+        else
+            return(isrechable(a,n,i+1,j,x,y) || isrechable(a,n,i,j+1,x,y) || isrechable(a,n,i-1,j,x,y) || isrechable(a,n,i,j-1,x,y));
+    }
     return false;
     
 }
